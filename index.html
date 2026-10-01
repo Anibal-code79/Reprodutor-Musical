@@ -1,90 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reprodutor Musical</title>
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODE Music</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <header>
-        <div class="Cabeca">
-            <h1> CODE Music </h1>
-            <div class="Pesquisar">
-                <input type="search" placeholder="Pesquisa Musicas, listas de reproducao ao seu gosto.">
-            </div>
-            <div class="Caixinhas">
-                <div class="box1"> Favoritos</div>
-                <div class="box2"> Minha PlayList</div>
-                <div class="box3"> Musicas Recentes</div>
-            </div>
-            <nav>
- <button id="btnMusicas" class="ativo">Músicas</button>
-  <button id="btnArtistas" class="ativo">Artistas</button>
-  <button id="btnAlbuns" class="ativo">Álbuns</button>
-</nav>
-        </div>
-    </header>
-    <main>
-    <section class="Musicas" id="musicas">
-        <article>
-            <h2>Musicas</h2>
-            <div class="Musicas">
-                <div id="listaMusicas"></div>
-                <audio controls>
-                    <source src="" type="audio Mp3">
-                </audio><br>
-                <audio controls>
-                    <source src="" type="audio Mp3">
-                </audio><br>
-                <audio controls>
-                    <source src="" type="audio Mp3">
-                </audio><br><br><br><br>
-            </div>
+  <header class="topo">
+    <h1>CODE Music</h1>
+    <div class="pesquisar">
+      <input type="search" id="busca" placeholder="Pesquisa músicas, artistas ou álbuns" aria-label="Pesquisar">
+    </div>
+  </header>
+
+  <main>
+    <div class="caixinhas">
+      <div class="box1">Favoritos</div>
+      <div class="box2">Minha PlayList</div>
+      <div class="box3">Músicas Recentes</div>
+    </div>
+
+    <nav>
+      <button id="btnMusicas" class="ativo">Músicas</button>
+      <button id="btnArtistas">Artistas</button>
+      <button id="btnAlbuns">Álbuns</button>
+    </nav>
+
+    <section id="musicas">
+      <h2 id="tituloLista">Em alta agora</h2>
+      <div id="listaMusicas" class="lista"></div>
     </section>
-    <section id="artistas">
-        <h2>Artistas</h2>
-            <div class="artista">
-                <img src="twet.jpg" alt="Twenty Fingers">
-                <p>Twenty Fingers</p>
-            </div>
-             <div class="artista">
-                <img src="anita.jpg" alt="Annita">
-                <p>Annita</p>
-            </div>
-             <div class="artista">
-                <img src="ivan.jpg" alt="Ivandro">
-                <p>Ivandro</p>
-            </div>
+    <section id="artistas" hidden>
+      <h2>Artistas</h2>
+      <div id="listaArtistas" class="grade"></div>
     </section>
-    <section id="albuns">
-            <h2>Albuns</h2><br>
-                <div class="album">
-                    <img src="twet.jpg" alt="album">
-                    <p>Album- Fofocas Sem Limite</p>
-                    <small>Twenty Fingers</small>
-                </div>
-                <div class="album">
-                    <img src="twet.jpg" alt="album">
-                    <p>Album- Fofocas Sem Limite</p>
-                    <small>Twenty Fingers</small>
-                </div>
-                <div class="album">
-                    <img src="twet.jpg" alt="album">
-                    <p>Album- Fofocas Sem Limite</p>
-                    <small>Twenty Fingers</small>
-                </div>
-                <div class="album">
-                    <img src="twet.jpg" alt="album">
-                    <p>Album- Fofocas Sem Limite</p>
-                    <small>Twenty Fingers</small>
-                </div>
+    <section id="albuns" hidden>
+      <h2>Álbuns</h2>
+      <div id="listaAlbuns" class="grade"></div>
     </section>
-    </main>
-    <footer>
-  <p>Música atual</p>
-  <button>▶</button>
-</footer>
-<script src="inter.js"></script>
+  </main>
+
+  <footer class="player">
+    <input type="range" id="progresso" value="0" min="0" max="30" step="0.1" aria-label="Progresso">
+    <img id="capa" alt="" hidden>
+    <div class="info">
+      <strong id="titulo">Nenhuma música a tocar</strong>
+      <small id="artista">Escolhe uma música da lista</small>
+    </div>
+    <div class="controlos">
+      <button id="btnAnterior" aria-label="Anterior">⏮</button>
+      <button id="btnPlay" class="play" aria-label="Tocar">▶</button>
+      <button id="btnProxima" aria-label="Seguinte">⏭</button>
+    </div>
+    <audio id="audio"></audio>
+  </footer>
+
+  <script src="inter.js"></script>
 </body>
 </html>
